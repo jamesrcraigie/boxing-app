@@ -1,0 +1,29 @@
+<h2 class="text-3xl text-center text-slate-700 font-bold my-5">Boxer List</h2>
+
+<div class="container flex items-center justify-center mx-auto ">
+    <table class="table-auto border-collapse border  text-slate-700 border-slate-500">
+        <thead>
+            <th class="border border-slate-600 px-2">First Name</th>
+            <th class="border border-slate-600 px-2">Last Name</th>
+            <th class="border border-slate-600 px-2">Date of Birth</th>
+            <th class="border border-slate-600 px-2">Registered Gym</th>
+            <th class="border border-slate-600 px-2">Wins</th>
+            <th class="border border-slate-600 px-2">Loses</th>
+            <th class="border border-slate-600 px-2">Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let boxer of boxers">
+                <td class="border-slate-700">{{boxer.firstName}}</td>
+                <td class="border-slate-700">{{boxer.lastName}}</td>
+                <td class="border-slate-700">{{boxer.dateOfBirth | date:'yyyy-MM-dd' }}</td>
+                <td class="border-slate-700">{{boxer.registeredGymName}}</td>
+                <td class="border-slate-700">{{boxer.wins}}</td>
+                <td class="border-slate-700">{{boxer.loses}}</td>
+                <td class="border-slate-700 flex flex-col md:flex-row">
+                    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-red-500 hover:bg-red-700 hover:text-white duration-500" (click) ="deleteBoxer(boxer.id)">Delete</button>
+                    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-blue-300 hover:bg-blue-700 hover:text-white duration-500" (click) ="updateBoxer(boxer.id)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
